@@ -9,9 +9,9 @@
 #include <Adafruit_MLX90614.h>
 #include <math.h>
 
-char auth[] = "9z4Q2fsdIoHyUzgEV9CQO2nsAxzae-Qv";
-char ssid[] = "HUAWEI_H112_DEA2";
-char pass[] = "17ARQN13NFE";
+char auth[] = "YOUR_BLYNK_AUTH_TOKEN";
+char ssid[] = "YOUR_WIFI_SSID";
+char pass[] = "YOUR_WIFI_PASSWORD";
 
 #define MPU 0x68
 #define IMPACT_G 1.0
