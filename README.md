@@ -1,18 +1,46 @@
 # IoT Patient Vital Monitoring System
 
-An ESP32-based health-monitoring prototype that combines multiple sensors with Blynk for remote vital-sign monitoring and abnormal-condition alerts.
+<p align="center">
+  <strong>ESP32-based multi-sensor health monitoring with remote alerts</strong>
+</p>
 
-## Monitored Parameters
-- Heart-rate-related optical readings
-- SpO2-oriented monitoring
-- Body temperature
-- Respiratory / flex sensor activity
-- Motion and impact sensing for fall detection
+<p align="center">
+  <img src="https://img.shields.io/badge/ESP32-IoT-00979D" />
+  <img src="https://img.shields.io/badge/Blynk-Remote_Monitoring-23C48E" />
+  <img src="https://img.shields.io/badge/Biomedical-Prototype-D94F70" />
+</p>
 
-## Hardware / Software
-ESP32, MAX30105, MLX90614, MPU-based motion sensing, flex sensor, LEDs, Blynk, Arduino/C++.
+## Project at a Glance
 
-## Structure
+| Item | Details |
+|---|---|
+| Domain | Biomedical IoT |
+| Controller | ESP32 |
+| Sensors | MAX30105, MLX90614, motion sensor, flex sensor |
+| Monitoring | Heart-rate-oriented signal, SpO2-oriented value, temperature, respiration proxy, motion |
+| Alerts | LEDs + Blynk events |
+| Status | Academic engineering prototype |
+
+## Overview
+
+This project explores remote patient monitoring using multiple embedded sensors. Measurements are processed locally on the ESP32, mapped to status indicators, and sent to Blynk for remote viewing and abnormal-condition alerts.
+
+## System Architecture
+
+```mermaid
+flowchart LR
+    A[MAX30105] --> E[ESP32]
+    B[MLX90614] --> E
+    C[Flex Sensor] --> E
+    D[Motion Sensor] --> E
+    E --> F[Condition Logic]
+    F --> G[Local LEDs]
+    E --> H[Blynk Dashboard]
+    F --> I[Remote Alert]
+```
+
+## Repository Structure
+
 ```text
 iot-vitals/
 ├── code/PATIENT.ino
@@ -21,21 +49,25 @@ iot-vitals/
 └── patient.fzz
 ```
 
-## System Flow
-Sensors → ESP32 → local condition checks → LED indicators / alerts → Blynk dashboard.
-
 ## Run
-Open `code/PATIENT.ino`, install the required libraries, configure your own Wi-Fi and Blynk credentials, then upload to the ESP32.
 
-## Important Note
-This is an academic engineering prototype and not a certified medical device. Sensor values and thresholds require proper calibration and validation before any real clinical use.
+Open `code/PATIENT.ino` in Arduino IDE, install the required libraries, configure local Wi-Fi/Blynk credentials, and upload to the ESP32.
 
-## Future Improvements
-- Replace simulated / heuristic values with validated signal-processing algorithms
-- Add secure patient data storage
+## Important Limitation
+
+This is an academic prototype, **not a certified medical device**. Sensor algorithms, thresholds, and derived values require proper calibration and clinical validation before any healthcare use.
+
+## Future Work
+
+- Replace simulated/heuristic derived values with validated algorithms
+- Add secure data storage
 - Add battery monitoring
-- Add caregiver notification workflows
-- Add calibration and validation tests
+- Add caregiver workflows
+- Add sensor calibration procedures
+- Add fault detection and self-test
 
 ## Author
+
 **Sadik Shaik**
+
+Computer Engineering · Biomedical IoT · Embedded Systems
